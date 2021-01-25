@@ -8,7 +8,9 @@ on:
   push:
     branches:
       - master
-      - 'releases/**'
+    tags:
+      - 'v*.*.*'
+
   pull_request:
     branches:
       - master
@@ -48,8 +50,11 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-
-      - name: build qa build
+      - name: build and push qa docker image
         if: ${{ github.ref == 'master' && github.event_name == 'push' }}
-        run: docker build -t jlai/gh-actions:master . \
-          docker push stellaralgo/gh-actions:master
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: jlai/gh-actions:latest
