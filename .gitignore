@@ -1,0 +1,4 @@
+node_modules/
+.atomignore
+npm-debug.log
+.DS_Store
