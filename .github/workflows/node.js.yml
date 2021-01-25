@@ -37,9 +37,11 @@ jobs:
       - name: run tests
         run: npm run test
 
-      - name: debugging gh-Actions
-        run: echo $GITHUB_REF
-        
+      - name: debug context & variables
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
       - name: build qa build
         if: ${{ github.ref == 'master' && github.event_name == 'push' }}
         run: docker build -t jlai/gh-actions:master . \
