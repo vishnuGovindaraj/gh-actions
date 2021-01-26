@@ -27,7 +27,7 @@ jobs:
 
       - name: Set envs
         env:
-          TAG_NAME: ${{ GITHUB_REF##*/ }}
+          TAG_NAME: ${{ ${GITHUB_REF##*/} }}
         run: |
           echo ${GITHUB_REF}
           echo ${GITHUB_REF##*/}
