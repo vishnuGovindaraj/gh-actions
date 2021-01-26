@@ -26,9 +26,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set envs
+        env:
+          TAG_NAME: ${{ GITHUB_REF##*/ }}
         run: |
           echo ${GITHUB_REF}
           echo ${GITHUB_REF##*/}
+          echo ${TAG_NAME}
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
