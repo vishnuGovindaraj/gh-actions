@@ -47,7 +47,6 @@ jobs:
 
       - name: debug context and envs
         run: |
-          echo $RELEASE_VERSION
           echo "${{ github.event.release }}"
 
       - name: Login to Docker Hub
