@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: test_branch
   pull_request:
     branches: [ master ]
 
@@ -27,4 +27,4 @@ jobs:
 
       # install npm
       - name: install packages
-        run: npm install 
+        run: npm install
