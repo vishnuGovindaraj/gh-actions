@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/jlai403/gh-actions#readme",
   "dependencies": {
+    "mongodb": "^3.6.3",
+    "mssql": "^6.3.1",
     "underscore": "^1.12.0"
   }
 }
